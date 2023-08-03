@@ -1,4 +1,4 @@
-package com.talan.githubsearch.github;
+package com.talan.githubsearch.github.domain;
 
 
 import lombok.Getter;
