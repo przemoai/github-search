@@ -1,9 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomePageComponent} from "./components/home-page/home-page.component";
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
-  {path: "x", component: HomePageComponent}
+  {path: "", redirectTo: "github", pathMatch: "full"},
+  {
+    path: "github", component: AppComponent, children: [
+      {path: "", component: HomePageComponent}
+    ]
+  },
+
 ];
 
 @NgModule({
