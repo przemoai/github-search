@@ -1,0 +1,8 @@
+<div class="content">
+  <h3>Recently searched</h3>
+  <ng-container *ngIf="(searchHistory$ |async) as searchHistory">
+    <div *ngFor="let result of searchHistory">
+      <app-history-row [history]="result"></app-history-row>
+    </div>
+  </ng-container>
+</div>

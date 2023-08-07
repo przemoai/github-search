@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0 5px 0;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+}
+
+img {
+  border-radius: 50%;
+  width: 32px;
+}
+
