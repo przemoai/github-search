@@ -1,1 +1,4 @@
-<p> {{githubUser$ |async|json}}</p>
+<img alt="{{(githubUser$ |async)?.username}}" src="{{(githubUser$ |async)?.avatar}}"/>
+<p> {{(githubUser$ |async)?.username}} </p>
+<p> {{(githubUser$ |async)?.url}} </p>
+

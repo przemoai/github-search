@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {GithubUserComponent} from './github-user/components/github-user/github-user.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import {HttpClientModule} from "@angular/common/http";
     HomePageComponent,
     GithubUserComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

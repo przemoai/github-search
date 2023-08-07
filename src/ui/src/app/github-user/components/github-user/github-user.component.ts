@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GithubUserService} from "../../services/github-user.service";
-import {Observable} from "rxjs";
+import {Observable, shareReplay} from "rxjs";
 import {GithubUserDetails} from "../../models/GithubUserDetails";
 
 @Component({
@@ -8,12 +8,15 @@ import {GithubUserDetails} from "../../models/GithubUserDetails";
   templateUrl: './github-user.component.html',
   styleUrls: ['./github-user.component.scss']
 })
-export class GithubUserComponent {
+export class GithubUserComponent implements OnInit {
 
-  githubUser$: Observable<GithubUserDetails> = this.githubUserService.getGithubUserDetails()
+  githubUser$: Observable<GithubUserDetails> = new Observable<GithubUserDetails>()
 
   constructor(private readonly githubUserService: GithubUserService) {
+  }
 
+  ngOnInit(): void {
+    this.githubUser$ = this.githubUserService.getGithubUserDetails().pipe(shareReplay(1))
   }
 
 

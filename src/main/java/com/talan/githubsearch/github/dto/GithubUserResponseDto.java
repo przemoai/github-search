@@ -13,7 +13,7 @@ public class GithubUserResponseDto {
     String username;
     @JsonAlias(value = "avatar_url")
     String avatar;
-    @JsonAlias(value = "url")
+    @JsonAlias(value = "html_url")
     String url;
     @JsonAlias(value = "created_at")
     Instant createdAt;
