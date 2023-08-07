@@ -1,15 +1,13 @@
 <div class="content">
-
-
+  <div class="input">
     <mat-form-field appearance="outline">
-      <input [formControl]="githubUserControl" matInput type="text">
-
+      <mat-label>Github username</mat-label>
+      <input [formControl]="githubUserControl" matInput placeholder="Username">
+      <button (click)="searchByUsername()" mat-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
     </mat-form-field>
-
-
-  <button (click)="searchByUsername()">
-    <mat-icon>search</mat-icon>
-  </button>
+  </div>
 
 </div>
 
