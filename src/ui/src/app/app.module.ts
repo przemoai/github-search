@@ -13,13 +13,16 @@ import { NavbarComponent } from './nav-bar/components/navbar/navbar.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
+import {SideBarComponent} from "./side-bar/components/side-bar/side-bar.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     GithubUserComponent,
-    NavbarComponent
+    NavbarComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,

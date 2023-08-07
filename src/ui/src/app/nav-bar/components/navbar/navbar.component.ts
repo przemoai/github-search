@@ -8,13 +8,10 @@ import {Router} from "@angular/router";
 export class NavbarComponent {
   githubUserControl = new FormControl('', []);
 
-
   constructor(private readonly router: Router) {
   }
 
   searchByUsername() {
-
     this.router.navigate(['/github/' + this.githubUserControl.value])
-
   }
 }
