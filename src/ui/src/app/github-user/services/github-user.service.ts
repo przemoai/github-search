@@ -10,7 +10,7 @@ export class GithubUserService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getGithubUserDetails(): Observable<GithubUserDetails> {
-    return this.http.get<GithubUserDetails>("http://localhost:8080/api/v1/github/przemoai")
+  getGithubUserDetails(username: string): Observable<GithubUserDetails> {
+    return this.http.get<GithubUserDetails>("http://localhost:8080/api/v1/github/" + username)
   }
 }

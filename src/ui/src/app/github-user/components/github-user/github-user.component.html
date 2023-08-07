@@ -1,4 +1,11 @@
-<img alt="{{(githubUser$ |async)?.username}}" src="{{(githubUser$ |async)?.avatar}}"/>
-<p> {{(githubUser$ |async)?.username}} </p>
-<p> {{(githubUser$ |async)?.url}} </p>
-
+<ng-container *ngIf="githubUser$ |async as githubUser">
+  <div class="content">
+    <div class="avatar">
+      <img alt="{{githubUser.username}}" src="{{githubUser.avatar}}"/>
+    </div>
+    <div class="details">
+      <h1> {{githubUser.username}} </h1>
+      <button (click)="goToGithubProfile()" color="accent" mat-raised-button> Go to github profile</button>
+    </div>
+  </div>
+</ng-container>

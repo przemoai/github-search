@@ -1,4 +1,18 @@
-img{
-  width: 200px;
-  border-radius: 50%;
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  img {
+    width: 200px;
+    border-radius: 50%;
+  }
+}
+
+.details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }

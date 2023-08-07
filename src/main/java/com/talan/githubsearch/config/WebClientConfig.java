@@ -8,16 +8,16 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 class WebClientConfig {
 
-    private final String BEARER_TOKEN;
+    private final String bearerToken;
 
     public WebClientConfig(@Value("${GITHUB_BEARER_TOKEN}") String bearerToken) {
-        this.BEARER_TOKEN = bearerToken;
+        this.bearerToken = bearerToken;
     }
 
     @Bean
     WebClient.Builder webClientBuilder() {
         return WebClient
                 .builder()
-                .defaultHeader("Authorization",BEARER_TOKEN);
+                .defaultHeader("Authorization", bearerToken);
     }
 }
