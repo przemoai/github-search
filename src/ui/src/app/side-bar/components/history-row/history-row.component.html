@@ -1,0 +1,5 @@
+<div [routerLink]="['github/',history.username]" class="content">
+  <img alt="{{history.username}}" src="{{history.avatar}}">
+  {{history.username}}
+  {{history.visitedAt | date:' HH:mm:ss dd MMMM yy'}}
+</div>

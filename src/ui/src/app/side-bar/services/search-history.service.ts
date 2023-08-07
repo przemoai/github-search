@@ -9,7 +9,6 @@ import {GithubUserSearchHistory} from "../models/GithubUserSearchHistory";
 export class SearchHistoryService {
 
   constructor(private readonly http: HttpClient) {
-
   }
 
   getSearchHistory(): Observable<GithubUserSearchHistory[]> {

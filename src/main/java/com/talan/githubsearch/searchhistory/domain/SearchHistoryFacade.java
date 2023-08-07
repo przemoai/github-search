@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -16,7 +17,10 @@ public class SearchHistoryFacade {
     private final SearchHistoryMapper searchHistoryMapper;
 
     public List<SearchHistoryDto> getSearchHistory() {
-        return searchHistoryMapper.toDto(searchHistoryRepository.findAll());
+        List<SearchHistoryDto> unordered = searchHistoryMapper.toDto(searchHistoryRepository.findAll());
+        return unordered.stream()
+                .sorted(Comparator.comparing(SearchHistoryDto::visitedAt).reversed())
+                .toList();
     }
 
     public SearchHistoryDto addToHistory(GithubUserResponseDto response) {

@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/history")
+@RequestMapping("api/v1/github/")
 @RequiredArgsConstructor
-class SearchHistoryController {
+public class SearchHistoryController {
 
     private final SearchHistoryFacade searchHistoryFacade;
 
-    @GetMapping("/")
+    @GetMapping(value = "history")
     List<SearchHistoryDto> getSearchHistory() {
         return searchHistoryFacade.getSearchHistory();
     }
