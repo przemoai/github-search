@@ -14,9 +14,7 @@ export class GithubUserService {
   getGithubUserDetails(username: string): Observable<GithubUserDetails> {
     const githubUserDetailsObservable: Observable<GithubUserDetails> = this.http.get<GithubUserDetails>("http://localhost:8080/api/v1/github/user/" + username);
 
-
     this.searchHistoryService.updateSearchHistory()
-
 
     return githubUserDetailsObservable
   }

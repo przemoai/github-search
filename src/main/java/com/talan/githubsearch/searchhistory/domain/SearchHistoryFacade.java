@@ -1,6 +1,6 @@
 package com.talan.githubsearch.searchhistory.domain;
 
-import com.talan.githubsearch.github.dto.GithubUserResponseDto;
+import com.talan.githubsearch.github.dto.GithubUserDetailsDto;
 import com.talan.githubsearch.searchhistory.dto.SearchHistoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,18 +24,24 @@ public class SearchHistoryFacade {
                 .toList();
     }
 
-    public void addToHistory(GithubUserResponseDto response) {
+    public void addToHistory(GithubUserDetailsDto response) {
+        Instant now = Instant.now();
 
         Optional<SearchHistoryEntity> searchedInPastProfile = searchHistoryRepository.findByUsername(response.getUsername());
 
-        searchedInPastProfile.ifPresent(searchHistoryEntity -> searchHistoryEntity.setVisitedAt(Instant.now()));
-
-        SearchHistoryEntity searchHistory = SearchHistoryEntity.builder()
-                .username(response.getUsername())
-                .avatar(response.getAvatar())
-                .visitedAt(Instant.now())
-                .build();
-
-        searchHistoryMapper.toDto(searchHistoryRepository.save(searchHistory));
+        searchedInPastProfile.ifPresentOrElse(
+                searchHistoryEntity -> {
+                    searchHistoryEntity.setVisitedAt(now);
+                    searchHistoryRepository.save(searchHistoryEntity);
+                },
+                () -> {
+                    SearchHistoryEntity searchHistory = SearchHistoryEntity.builder()
+                            .username(response.getUsername())
+                            .avatar(response.getAvatar())
+                            .visitedAt(now)
+                            .build();
+                    searchHistoryRepository.save(searchHistory);
+                }
+        );
     }
 }

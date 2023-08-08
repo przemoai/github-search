@@ -1,0 +1,24 @@
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <b>{{repository.name}}</b>
+    </mat-panel-title>
+    <mat-panel-description>
+      {{repository.language}}
+
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    <ng-container *ngIf="repository.description as description">
+      <h3>Description</h3>
+      {{description}}
+    </ng-container>
+  </div>
+  <div class="links">
+  <h3>Links</h3>
+    <a href="{{repository.htmlUrl}}" target="_blank">Github Page</a>
+    <p><b>Clone:</b> {{repository.cloneUrl}}</p>
+    <p><b>SSH:</b> {{repository.sshUrl}}</p>
+  </div>
+
+</mat-expansion-panel>
