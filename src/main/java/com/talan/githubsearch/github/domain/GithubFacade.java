@@ -34,8 +34,7 @@ private final SearchHistoryFacade searchHistoryFacade;
                 .block();
 
         if(Objects.nonNull(response)){
-           var x = searchHistoryFacade.addToHistory(response);
-           log.info(x.username());
+           searchHistoryFacade.addToHistory(response);
         }
         return response;
     }
