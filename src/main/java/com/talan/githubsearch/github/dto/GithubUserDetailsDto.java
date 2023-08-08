@@ -5,10 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.List;
 
 @Getter
 @Setter
-public class GithubUserResponseDto {
+public class GithubUserDetailsDto {
     @JsonAlias(value = "login")
     String username;
     @JsonAlias(value = "avatar_url")
@@ -17,4 +18,5 @@ public class GithubUserResponseDto {
     String url;
     @JsonAlias(value = "created_at")
     Instant createdAt;
+    List<GithubUserRepositoryDto> repos;
 }

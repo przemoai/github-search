@@ -2,10 +2,20 @@
   <div class="content">
     <div class="avatar">
       <img alt="{{githubUser.username}}" src="{{githubUser.avatar}}"/>
-    </div>
-    <div class="details">
       <h1> {{githubUser.username}} </h1>
       <button (click)="goToGithubProfile()" color="accent" mat-raised-button> Go to github profile</button>
     </div>
+    <div class="details">
+    </div>
+
+    <div class="repositories">
+      <h2>Repositories</h2>
+
+        <app-user-repository [repository]="repo" *ngFor="let repo of githubUser.repos"></app-user-repository>
+
+    </div>
+
   </div>
+
+
 </ng-container>

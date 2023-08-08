@@ -15,6 +15,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
 import {SideBarComponent} from "./side-bar/components/side-bar/side-bar.component";
 import { HistoryRowComponent } from './side-bar/components/history-row/history-row.component';
+import { UserRepositoryComponent } from './github-user/components/user-repository/user-repository.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { HistoryRowComponent } from './side-bar/components/history-row/history-r
     GithubUserComponent,
     NavbarComponent,
     SideBarComponent,
-    HistoryRowComponent
+    HistoryRowComponent,
+    UserRepositoryComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { HistoryRowComponent } from './side-bar/components/history-row/history-r
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
