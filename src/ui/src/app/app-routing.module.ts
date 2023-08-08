@@ -4,13 +4,15 @@ import {GithubUserComponent} from "./github-user/components/github-user/github-u
 import {LoginPageComponent} from "./auth-guard/login-page/login-page.component";
 import {AuthService} from "./auth-guard/services/auth.service";
 
-const routes: Routes = [
-  {path: "auth/login", component: LoginPageComponent},
 
+const routes: Routes = [
+
+  {path: "auth/login", component: LoginPageComponent},
+  {path: "", redirectTo: "github/", pathMatch: "full"},
   {
-    path: "",
-    children: [
-      {path: "github/user/:username", component: GithubUserComponent, canActivate:[AuthService]},]
+    path: "github",
+    canActivate: [AuthService],
+    children: [{path: "user/:username", component: GithubUserComponent, canActivate: [AuthService]},]
   },
 
 
