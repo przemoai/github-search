@@ -1,8 +1,8 @@
 package com.talan.githubsearch.github.domain;
 
 
-import com.talan.githubsearch.github.dto.GithubUserRepositoryDto;
 import com.talan.githubsearch.github.dto.GithubUserDetailsDto;
+import com.talan.githubsearch.github.dto.GithubUserRepositoryDto;
 import com.talan.githubsearch.searchhistory.domain.SearchHistoryFacade;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,12 +25,13 @@ import java.util.Objects;
 public class GithubFacade {
     private final GithubRepository githubRepository;
     private final WebClient.Builder webClientBuilder;
-private final SearchHistoryFacade searchHistoryFacade;
+    private final SearchHistoryFacade searchHistoryFacade;
+    private static final String API_URL = "https://api.github.com/users";
 
     public GithubUserDetailsDto getDetailsByUsername(String username) {
 
         GithubUserDetailsDto response = webClientBuilder.build().get()
-                .uri("https://api.github.com/users", uriBuilder -> uriBuilder
+                .uri(API_URL, uriBuilder -> uriBuilder
                         .path("/{username}")
                         .build(username))
                 .accept(MediaType.APPLICATION_JSON)
@@ -49,7 +50,7 @@ private final SearchHistoryFacade searchHistoryFacade;
 
     private List<GithubUserRepositoryDto> getUserRepos(String username) {
         GithubUserRepositoryDto[] response = webClientBuilder.build().get()
-                .uri("https://api.github.com/users", uriBuilder -> uriBuilder
+                .uri(API_URL, uriBuilder -> uriBuilder
                         .path("/{username}/repos")
                         .build(username))
                 .accept(MediaType.APPLICATION_JSON)

@@ -17,6 +17,7 @@ import {SideBarComponent} from "./side-bar/components/side-bar/side-bar.componen
 import { HistoryRowComponent } from './side-bar/components/history-row/history-row.component';
 import { UserRepositoryComponent } from './github-user/components/user-repository/user-repository.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { LoginPageComponent } from './auth-guard/login-page/login-page.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     NavbarComponent,
     SideBarComponent,
     HistoryRowComponent,
-    UserRepositoryComponent
+    UserRepositoryComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

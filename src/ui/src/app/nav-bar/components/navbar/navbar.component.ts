@@ -12,6 +12,6 @@ export class NavbarComponent {
   }
 
   searchByUsername() {
-    this.router.navigate(['/github/' + this.githubUserControl.value])
+    this.router.navigate(['/github/user/' + this.githubUserControl.value])
   }
 }
