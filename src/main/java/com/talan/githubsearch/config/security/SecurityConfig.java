@@ -21,6 +21,9 @@ class SecurityConfig {
 
     private final UserRepository userRepository;
     private final CustomOAuth2UserService customOAuth2UserService;
+    private static final String[] ANGULAR_UI_RESOURCES = {"/index.html", "/static/**", "/3rdpartylicenses.txt", "/favicon.ico", "/main.*.js", "/polyfills.*.js", "/runtime.*.js", "/styles.*.css"};
+    private static final String[] ALLOWED_API_ENDPOINTS = {"/api/v1/user"};
+    private static final String[] ALLOWED_UI_VIEWS = {"/auth/**"};
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -28,8 +31,7 @@ class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf()
                 .disable()
-                .authorizeHttpRequests()
-                .antMatchers("/index.html", "/auth/**", "/api/v1/user").permitAll()
+                .authorizeHttpRequests().antMatchers(ALLOWED_UI_VIEWS).permitAll().antMatchers(ALLOWED_API_ENDPOINTS).permitAll().antMatchers(ANGULAR_UI_RESOURCES).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -56,5 +58,4 @@ class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
 }
