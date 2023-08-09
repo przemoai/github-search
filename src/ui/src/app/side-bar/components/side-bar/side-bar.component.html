@@ -1,6 +1,6 @@
 <div class="content">
-  <h3>Recently searched</h3>
-  <ng-container *ngIf="searchHistory">
+  <ng-container *ngIf="searchHistory.length>0">
+    <h3>Recently searched</h3>
     <div *ngFor="let result of searchHistory">
       <app-history-row [history]="result"></app-history-row>
     </div>
