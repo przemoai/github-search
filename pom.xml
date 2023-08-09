@@ -67,6 +67,9 @@
 			<directory>src/ui/dist/ui</directory>
 			<targetPath>static/</targetPath>
 		</resource>
+		<resource>
+			<directory>src/main/resources</directory>
+		</resource>
 		</resources>
 		<plugins>
 			<plugin>
