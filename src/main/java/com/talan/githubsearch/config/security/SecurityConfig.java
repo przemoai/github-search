@@ -35,7 +35,12 @@ class SecurityConfig {
                 .anyRequest()
                 .authenticated()
                 .and()
+                .logout()
+                .logoutSuccessUrl("/auth/login")
+                .deleteCookies("JSESSIONID")
+                .and()
                 .oauth2Login()
+                    .defaultSuccessUrl("/github")
                     .userInfoEndpoint()
                     .userService(customOAuth2UserService);
         return http.build();

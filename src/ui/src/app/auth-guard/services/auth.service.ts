@@ -24,6 +24,15 @@ export class AuthService {
   isLogged(): Observable<boolean> {
     return this.http.get<LoggedUser>("http://localhost:8080/api/v1/user").pipe(map((user: LoggedUser) => user.isLogged), catchError(() => of(false)));
   }
+
+  login() {
+    window.location.href = "http://localhost:8080/login/oauth2/authorization/github"
+  }
+
+  logout() {
+    window.location.href = "http://localhost:8080/logout"
+  }
+
 }
 
 export interface LoggedUser {
