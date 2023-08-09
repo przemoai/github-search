@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
   selector: 'app-home-page', templateUrl: './welcome-page.component.html', styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent {
-  technologies: string[] = ['spring', 'java', 'angular', 'maven', 'azure', 'azure-postgres', 'github', 'github-actions']
+  technologies: string[] = ['java', 'spring', 'angular', 'maven', 'azure', 'azure-postgres', 'github', 'github-actions', 'docker']
 
   constructor(private readonly router: Router) {
   }

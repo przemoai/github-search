@@ -21,9 +21,9 @@ class SecurityConfig {
 
     private final UserRepository userRepository;
     private final CustomOAuth2UserService customOAuth2UserService;
-    private static final String[] ANGULAR_UI_RESOURCES = {"/index.html", "/static/**", "/3rdpartylicenses.txt", "/favicon.ico", "/main.*.js", "/polyfills.*.js", "/runtime.*.js", "/styles.*.css"};
+    private static final String[] ANGULAR_UI_RESOURCES = {"/index.html", "/static/**", "/3rdpartylicenses.txt", "/favicon.ico", "/main.*.js", "/polyfills.*.js", "/runtime.*.js", "/styles.*.css", "/assets/**"};
     private static final String[] ALLOWED_API_ENDPOINTS = {"/api/v1/user"};
-    private static final String[] ALLOWED_UI_VIEWS = {"/auth/**"};
+    private static final String[] ALLOWED_UI_VIEWS = {"/", "/auth/**"};
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
