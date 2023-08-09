@@ -1,0 +1,14 @@
+<div class="content">
+  <h1> Project description </h1>
+  <p> Application allows to search through Github users and check their repo details </p>
+  <p> As app user we have to authorize with Github account </p>
+
+  <button (click)="goToApp()" color="primary" mat-raised-button> Go to app</button>
+
+  <h2> Used technologies </h2>
+  <div class="tech-gallery">
+
+
+    <img *ngFor="let technology of technologies" [alt]="technology" src="assets/img/{{technology}}.png">
+  </div>
+</div>
