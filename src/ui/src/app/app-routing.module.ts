@@ -8,7 +8,7 @@ import {AuthService} from "./auth-guard/services/auth.service";
 const routes: Routes = [
 
   {path: "auth/login", component: LoginPageComponent},
-  {path: "", redirectTo: "github/", pathMatch: "full"},
+  {path: "", redirectTo: "github", pathMatch: "full"},
   {
     path: "github",
     canActivate: [AuthService],
