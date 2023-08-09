@@ -8,13 +8,14 @@ import {GithubUserSearchHistory} from "../../models/GithubUserSearchHistory";
 export class SideBarComponent implements OnInit {
   searchHistory: GithubUserSearchHistory[] = [];
 
-    constructor(private readonly searchHistoryService: SearchHistoryService) {
-    }
+  constructor(private readonly searchHistoryService: SearchHistoryService) {
+  }
 
   ngOnInit() {
+    this.searchHistoryService.updateSearchHistory()
     this.searchHistoryService.searchHistory$.subscribe((history: GithubUserSearchHistory[]) => {
       this.searchHistory = history;
-    });
+    })
   }
 
 }

@@ -1,4 +1,8 @@
 <div class="content">
+  <div class="home">
+    <mat-icon (click)="goWelcomePage()">home</mat-icon>
+  </div>
+
   <div class="input">
     <mat-form-field appearance="outline">
       <mat-label>Find user</mat-label>
@@ -7,8 +11,12 @@
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
-  </div>
 
+    <div class="login-logout">
+      <button (click)="login()" *ngIf="!isLogged() " color="accent" mat-raised-button> LOGIN</button>
+      <button (click)="logout()" *ngIf="isLogged()" color="accent" mat-raised-button> LOGOUT</button>
+  </div>
+  </div>
 </div>
 
 

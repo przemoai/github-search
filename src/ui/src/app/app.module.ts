@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomePageComponent} from './home-page/home-page.component';
+import {WelcomePageComponent} from './welcome-page/welcome-page.component';
 import {GithubUserComponent} from './github-user/components/github-user/github-user.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {NgOptimizedImage} from "@angular/common";
@@ -19,18 +19,21 @@ import {UserRepositoryComponent} from './github-user/components/user-repository/
 import {MatExpansionModule} from "@angular/material/expansion";
 import {LoginPageComponent} from './auth-guard/login-page/login-page.component';
 import {AuthInterceptor} from "./auth-guard/interceptors/auth.interceptor";
+import {MainFrameComponent} from "./main-frame/main-frame.component";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
+    WelcomePageComponent,
     GithubUserComponent,
     NavbarComponent,
     SideBarComponent,
     HistoryRowComponent,
     UserRepositoryComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MainFrameComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class SearchHistoryService {
   searchHistory$: Observable<GithubUserSearchHistory[]> = this.searchHistorySubject.asObservable();
   constructor(private readonly http: HttpClient) {
     this.getSearchHistory()
+
   }
 
   updateSearchHistory() {
@@ -22,7 +23,6 @@ export class SearchHistoryService {
   }
 
   getSearchHistory(): Observable<GithubUserSearchHistory[]> {
-
     return this.http.get<GithubUserSearchHistory[]>(`${environment.apiUrl}/api/v1/github/history`)
   }
 }
