@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  database:
+    image: 'postgres'
+    ports:
+      - '5432'
+    environment:
+      - 'POSTGRES_USER=github'
+      - 'POSTGRES_DB=github'
+      - 'POSTGRES_PASSWORD=github_password'
+    volumes:
+      - postgres_dev:/var/lib/postgresql/data
+
+  github-search:
+    build:
+      context: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
