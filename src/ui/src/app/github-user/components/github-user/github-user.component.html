@@ -10,7 +10,9 @@
 
     <div class="repositories">
       <h2>Repositories</h2>
+      <div class="repositories-list">
         <app-user-repository [repository]="repo" *ngFor="let repo of githubUser.repos"></app-user-repository>
+      </div>
     </div>
   </div>
 </ng-container>
