@@ -28,6 +28,7 @@
 
   .repositories-list{
     max-height: 70vh;
+    width: 100%;
     overflow: auto;
   }
 }
@@ -36,6 +37,4 @@
   position: absolute;
   right: 50%;
   top: 50%;
-
-
 }

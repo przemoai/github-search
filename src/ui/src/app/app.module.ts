@@ -22,6 +22,8 @@ import {AuthInterceptor} from "./auth-guard/interceptors/auth.interceptor";
 import {MainFrameComponent} from "./main-frame/main-frame.component";
 import { FilesSizePipe } from './github-user/pipes/files-size.pipe';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import {ClipboardModule} from "@angular/cdk/clipboard";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 
@@ -39,18 +41,20 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
     FilesSizePipe,
     LoadingIndicatorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgOptimizedImage,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatExpansionModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgOptimizedImage,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatInputModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatExpansionModule,
+        ClipboardModule,
+        MatTooltipModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,8 +1,14 @@
 <div class="content">
   <ng-container *ngIf="searchHistory.length>0">
-    <h3>Recently searched</h3>
-    <div *ngFor="let result of searchHistory">
+
+    <table>
+      <caption><h3>Recently searched</h3></caption>
+      <th></th>
+      <tr *ngFor="let result of searchHistory">
       <app-history-row [history]="result"></app-history-row>
+      </tr>
+    </table>
+    <div>
     </div>
   </ng-container>
 </div>
