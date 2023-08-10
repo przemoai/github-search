@@ -5,5 +5,5 @@ export interface GithubUserRepository{
   htmlUrl:string,
   sshUrl:string,
   cloneUrl:string,
-
+  size:number
 }

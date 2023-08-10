@@ -6,4 +6,5 @@ export interface GithubUserDetails {
   url: string,
   createdAt: Date
   repos: GithubUserRepository[]
+  repoSize: number
 }
