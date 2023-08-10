@@ -20,6 +20,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {LoginPageComponent} from './auth-guard/login-page/login-page.component';
 import {AuthInterceptor} from "./auth-guard/interceptors/auth.interceptor";
 import {MainFrameComponent} from "./main-frame/main-frame.component";
+import { FilesSizePipe } from './github-user/pipes/files-size.pipe';
 
 
 
@@ -33,7 +34,8 @@ import {MainFrameComponent} from "./main-frame/main-frame.component";
     HistoryRowComponent,
     UserRepositoryComponent,
     LoginPageComponent,
-    MainFrameComponent
+    MainFrameComponent,
+    FilesSizePipe
   ],
   imports: [
     BrowserModule,

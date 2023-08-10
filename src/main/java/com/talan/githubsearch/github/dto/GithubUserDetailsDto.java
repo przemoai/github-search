@@ -19,4 +19,5 @@ public class GithubUserDetailsDto {
     @JsonAlias(value = "created_at")
     Instant createdAt;
     List<GithubUserRepositoryDto> repos;
+    int repoSize;
 }
