@@ -24,6 +24,7 @@ import { FilesSizePipe } from './github-user/pipes/files-size.pipe';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 import {ClipboardModule} from "@angular/cdk/clipboard";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -53,7 +54,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         ReactiveFormsModule,
         MatExpansionModule,
         ClipboardModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatProgressSpinnerModule
     ],
   providers: [
     {
