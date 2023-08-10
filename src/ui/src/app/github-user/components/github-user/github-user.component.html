@@ -16,12 +16,12 @@
     </div>
   </div>
 </ng-container>
-<ng-template [ngIf]="!(githubUser$|async) && !userNotFound">
+<div *ngIf="!(githubUser$|async) && !userNotFound">
   <div class="loading-indicator">
     <app-loading-indicator></app-loading-indicator>
   </div>
 
-</ng-template>
+</div>
 <div *ngIf="userNotFound" class="content">
   <h2>User not found</h2>
 </div>
