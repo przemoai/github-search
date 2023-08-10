@@ -10,9 +10,13 @@
 
     <div class="repositories">
       <h2>Repositories</h2>
+      <p>Your repositories size : <b>{{githubUser.repoSize |filesSize}}</b></p>
       <div class="repositories-list">
         <app-user-repository [repository]="repo" *ngFor="let repo of githubUser.repos"></app-user-repository>
       </div>
     </div>
   </div>
 </ng-container>
+<div class="loading-indicator" *ngIf="!(githubUser$ |async)">
+  <app-loading-indicator></app-loading-indicator>
+</div>

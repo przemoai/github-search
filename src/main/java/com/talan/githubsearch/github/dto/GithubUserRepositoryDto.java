@@ -19,4 +19,6 @@ public class GithubUserRepositoryDto {
     private String sshUrl;
     @JsonAlias(value = "clone_url")
     private String cloneUrl;
+    @JsonAlias(value = "size")
+    private int size;
 }

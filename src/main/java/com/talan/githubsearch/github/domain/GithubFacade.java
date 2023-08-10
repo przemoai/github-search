@@ -23,7 +23,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Slf4j
 public class GithubFacade {
-    private final GithubRepository githubRepository;
+
     private final WebClient.Builder webClientBuilder;
     private final SearchHistoryFacade searchHistoryFacade;
     private static final String API_URL = "https://api.github.com/users";
@@ -33,7 +33,8 @@ public class GithubFacade {
         GithubUserDetailsDto response = webClientBuilder.build().get()
                 .uri(API_URL, uriBuilder -> uriBuilder
                         .path("/{username}")
-                        .build(username))
+                        .build(username)
+                )
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve().onStatus(HttpStatus::isError, this::handleErrorResponse)
                 .bodyToMono(GithubUserDetailsDto.class)
@@ -43,15 +44,23 @@ public class GithubFacade {
            searchHistoryFacade.addToHistory(response);
 
             response.setRepos(getUserRepos(username));
+            response.setRepoSize(calculateRepoSize(response.getRepos()));
         }
 
         return response;
+    }
+
+    private int calculateRepoSize(List<GithubUserRepositoryDto> repos) {
+        return repos.stream().mapToInt(GithubUserRepositoryDto::getSize).sum();
     }
 
     private List<GithubUserRepositoryDto> getUserRepos(String username) {
         GithubUserRepositoryDto[] response = webClientBuilder.build().get()
                 .uri(API_URL, uriBuilder -> uriBuilder
                         .path("/{username}/repos")
+                        .queryParam("per_page",100)
+                        .queryParam("sort","created")
+                        .queryParam("direction","desc")
                         .build(username))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
