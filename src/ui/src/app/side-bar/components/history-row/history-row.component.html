@@ -1,5 +1,14 @@
 <div [routerLink]="['user/',history.username]" class="content">
+  <td>
   <img alt="{{history.username}}" src="{{history.avatar}}">
-  {{history.username}}
-  {{history.visitedAt | date:' HH:mm:ss dd MMMM yy'}}
+
+  </td>
+  <td class="username">
+    <b>{{history.username}}</b>
+  </td>
+  <td>
+    {{history.visitedAt | date:'dd MMMM yy || HH:mm:ss '}}
+  </td>
+
+
 </div>

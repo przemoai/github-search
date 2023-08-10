@@ -3,8 +3,15 @@
   flex-direction: row;
   margin: 5px 0 5px 0;
   width: 100%;
-  align-items: center;
   cursor: pointer;
+
+  td {
+    display: flex;
+    align-items: center;
+  }
+  .username{
+    min-width: 200px;
+  }
 }
 
 img {
