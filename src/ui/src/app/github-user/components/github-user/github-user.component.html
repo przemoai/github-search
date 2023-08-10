@@ -17,3 +17,6 @@
     </div>
   </div>
 </ng-container>
+<div class="loading-indicator" *ngIf="!(githubUser$ |async)">
+  <app-loading-indicator></app-loading-indicator>
+</div>
