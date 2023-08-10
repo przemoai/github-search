@@ -40,7 +40,7 @@ class SecurityConfig {
                 .deleteCookies("JSESSIONID")
                 .and()
                 .oauth2Login()
-                    .defaultSuccessUrl("/github")
+                    .defaultSuccessUrl("/github",true)
                     .userInfoEndpoint()
                     .userService(customOAuth2UserService);
         return http.build();
