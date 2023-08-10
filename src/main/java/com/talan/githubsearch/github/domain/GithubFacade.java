@@ -74,6 +74,6 @@ public class GithubFacade {
     }
 
     private Mono<? extends Throwable> handleErrorResponse(ClientResponse response) {
-        return response.bodyToMono(String.class).flatMap(errorBody -> Mono.error(RepositoryNotFoundException::new));
+        return response.bodyToMono(String.class).flatMap(errorBody -> Mono.error(UserNotFoundException::new));
     }
 }

@@ -12,18 +12,30 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class GithubUserComponent implements OnInit {
   username: string = ""
   githubUser$: Observable<GithubUserDetails> = new Observable<GithubUserDetails>()
+  userNotFound: boolean = false;
+  private profileUrl: string = ""
 
   constructor(private readonly githubUserService: GithubUserService, private readonly route: ActivatedRoute) {
   }
 
   goToGithubProfile() {
-    this.githubUser$.subscribe((user: GithubUserDetails) => window.open(user.url, "_blank"))
+    window.open(this.profileUrl, "_blank")
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.username = params['username']
       this.githubUser$ = this.githubUserService.getGithubUserDetails(this.username)
+
+      this.githubUser$.subscribe({
+        next: (response: GithubUserDetails) => {
+          this.userNotFound = false
+          this.profileUrl = response.url
+        },
+        error: err => {
+          this.userNotFound = true
+        }
+      })
     })
   }
 }

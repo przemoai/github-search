@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 class GithubRepositoryExceptionHandler {
 
-    private static final String REPOSITORY_NOT_FOUND_MESSAGE = "Repository not found";
+    private static final String USER_NOT_FOUND_MESSAGE = "User not found";
     private static final String ILLEGAL_ARGUMENT_MESSAGE = "Illegal argument passed";
 
-    @ExceptionHandler(RepositoryNotFoundException.class)
+    @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<String> handleRepositoryNotFoundException() {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(REPOSITORY_NOT_FOUND_MESSAGE);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(USER_NOT_FOUND_MESSAGE);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
