@@ -5,7 +5,6 @@
     </mat-panel-title>
     <mat-panel-description>
       {{repository.language}}
-
     </mat-panel-description>
   </mat-expansion-panel-header>
   <div>
@@ -15,6 +14,7 @@
     </ng-container>
   </div>
   <div class="links">
+    <p>Repository size: <b>{{repository.size |filesSize}}</b></p>
   <h3>Links</h3>
     <a href="{{repository.htmlUrl}}" target="_blank">Github Page</a>
     <p><b>Clone:</b> {{repository.cloneUrl}}</p>
