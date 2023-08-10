@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {GithubUserDetails} from "../models/GithubUserDetails";
-import {Observable} from "rxjs";
+import {Observable, shareReplay} from "rxjs";
 import {SearchHistoryService} from "../../side-bar/services/search-history.service";
 import {environment} from "../../../environments/environment";
 
@@ -13,7 +13,7 @@ export class GithubUserService {
   }
 
   getGithubUserDetails(username: string): Observable<GithubUserDetails> {
-    const githubUserDetailsObservable: Observable<GithubUserDetails> = this.http.get<GithubUserDetails>(`${environment.apiUrl}/api/v1/github/user/` + username);
+    const githubUserDetailsObservable: Observable<GithubUserDetails> = this.http.get<GithubUserDetails>(`${environment.apiUrl}/api/v1/github/user/` + username).pipe(shareReplay(1));
 
     this.searchHistoryService.updateSearchHistory()
 
