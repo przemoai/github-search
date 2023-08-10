@@ -6,6 +6,7 @@
 }
 
 .nav-bar {
+  height: 10vh;
   width: 100vw;
 }
 
@@ -17,16 +18,17 @@
   display: flex;
   flex-direction: row;
   width: 100vw;
+  height: 84vh;
 }
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+
   bottom: 0;
   width: 100%;
-  height: 50px;
+  height: 5vh;
   border-top: black 5px solid;
   color: white;
 
