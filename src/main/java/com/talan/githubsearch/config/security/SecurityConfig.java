@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -29,21 +30,28 @@ class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .csrf()
-                .disable()
-                .authorizeHttpRequests().antMatchers(ALLOWED_UI_VIEWS).permitAll().antMatchers(ALLOWED_API_ENDPOINTS).permitAll().antMatchers(ANGULAR_UI_RESOURCES).permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/auth/login")
-                .deleteCookies("JSESSIONID")
-                .and()
-                .oauth2Login()
-                    .defaultSuccessUrl("/github",true)
-                    .userInfoEndpoint()
-                    .userService(customOAuth2UserService);
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(request -> request
+                        .requestMatchers(ALLOWED_API_ENDPOINTS).permitAll()
+                        .requestMatchers(ALLOWED_UI_VIEWS).permitAll()
+                        .requestMatchers(ANGULAR_UI_RESOURCES).permitAll()
+                        .anyRequest()
+                        .authenticated()
+                )
+                .logout(logout -> logout
+                        .permitAll()
+                        .logoutSuccessUrl("/auth/login")
+                        .deleteCookies("JSESSIONID")
+                )
+                .oauth2Login(auth -> auth
+                        .defaultSuccessUrl("/github", true)
+                        .userInfoEndpoint(userInfoEndpointConfig -> userInfoEndpointConfig
+                                .userService(customOAuth2UserService)))
+
+        ;
         return http.build();
+
+
     }
 
     @Bean

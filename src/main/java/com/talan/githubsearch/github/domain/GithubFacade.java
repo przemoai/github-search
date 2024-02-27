@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -36,7 +37,8 @@ public class GithubFacade {
                         .build(username)
                 )
                 .accept(MediaType.APPLICATION_JSON)
-                .retrieve().onStatus(HttpStatus::isError, this::handleErrorResponse)
+                .retrieve()
+                .onStatus(HttpStatus.NOT_FOUND::equals, this::handleErrorResponse)
                 .bodyToMono(GithubUserDetailsDto.class)
                 .block();
 
