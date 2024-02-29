@@ -6,9 +6,9 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - 'POSTGRES_USER=dsadasdsaf'
-      - 'POSTGRES_DB=dsadsadas'
-      - 'POSTGRES_PASSWORD=dsad#@DDSA#@'
+      - 'POSTGRES_USER=Ik04q1zsxV50ZKOy5C0AT7BT'
+      - 'POSTGRES_DB=Ik04q1zsxV50ZKOy5C0AT7BT'
+      - 'POSTGRES_PASSWORD=Lu|0iekk(<7(Via5rx0;$#sd'
     volumes:
       - postgres_dev:/var/lib/postgresql/data
 
@@ -18,10 +18,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - 'LOCAL_POSTGRES_URL=jdbc:postgresql://database:5432/dsadsadas?user=dsadasdsaf&password=dsad#@DDSA#@'
+      - 'LOCAL_POSTGRES_URL=jdbc:postgresql://database:5432/Ik04q1zsxV50ZKOy5C0AT7BT?user=Ik04q1zsxV50ZKOy5C0AT7BT&password=Lu|0iekk(<7(Via5rx0;$#sd'
       - 'GITHUB_SECRET_DEV=<SECRET_VALUE>'
       - 'GITHUB_CLIENT_ID_DEV=<SECRET_VALUE>'
-      - 'GITHUB_BEARER_TOKEN=<SECRET_VALUE>'
+      - 'GITHUB_BEARER_TOKEN=Bearer <SECRET_VALUE>'
 
     depends_on:
       - database

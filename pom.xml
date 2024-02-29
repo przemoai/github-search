@@ -8,7 +8,7 @@
 		<version>3.2.3</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.talan</groupId>
+	<groupId>pl.pollub</groupId>
 	<artifactId>githubsearch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>github-search</name>
