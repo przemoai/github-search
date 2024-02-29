@@ -1,6 +1,6 @@
-package com.talan.githubsearch.searchhistory.domain;
+package com.talan.githubsearch.history.domain;
 
-import com.talan.githubsearch.searchhistory.dto.SearchHistoryDto;
+import com.talan.githubsearch.history.dto.SearchHistoryDto;
 import org.mapstruct.Mapper;
 
 import java.util.List;

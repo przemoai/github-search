@@ -4,11 +4,11 @@ services:
   database:
     image: 'postgres'
     ports:
-      - '5432'
+      - '5432:5432'
     environment:
-      - 'POSTGRES_USER=github'
-      - 'POSTGRES_DB=github'
-      - 'POSTGRES_PASSWORD=github_password'
+      - 'POSTGRES_USER=dsadasdsaf'
+      - 'POSTGRES_DB=dsadsadas'
+      - 'POSTGRES_PASSWORD=dsad#@DDSA#@'
     volumes:
       - postgres_dev:/var/lib/postgresql/data
 
@@ -17,5 +17,14 @@ services:
       context: ./
     ports:
       - "8080:8080"
+    environment:
+      - 'LOCAL_POSTGRES_URL=jdbc:postgresql://database:5432/dsadsadas?user=dsadasdsaf&password=dsad#@DDSA#@'
+      - 'GITHUB_SECRET_DEV=<SECRET_VALUE>'
+      - 'GITHUB_CLIENT_ID_DEV=<SECRET_VALUE>'
+      - 'GITHUB_BEARER_TOKEN=<SECRET_VALUE>'
+
     depends_on:
       - database
+
+volumes:
+  postgres_dev:

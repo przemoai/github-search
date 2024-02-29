@@ -1,7 +1,7 @@
-package com.talan.githubsearch.searchhistory.resource;
+package com.talan.githubsearch.history.resource;
 
-import com.talan.githubsearch.searchhistory.domain.SearchHistoryFacade;
-import com.talan.githubsearch.searchhistory.dto.SearchHistoryDto;
+import com.talan.githubsearch.history.domain.SearchHistoryFacade;
+import com.talan.githubsearch.history.dto.SearchHistoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.talan.githubsearch.searchhistory.dto;
+package com.talan.githubsearch.history.dto;
 
 import java.time.Instant;
 

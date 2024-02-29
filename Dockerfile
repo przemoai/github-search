@@ -1,13 +1,14 @@
-FROM gradle:8.2.1-jdk17 AS build
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 
 WORKDIR /app
-COPY build.gradle settings.gradle ./
+COPY pom.xml ./
 COPY src ./src
-RUN gradle build
+RUN mvn clean install
 
 
 FROM bellsoft/liberica-openjre-alpine
 
-COPY --from=build app/build/libs/github-search-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/github-search.jar /app.jar
+
 EXPOSE 7777
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "/app.jar"]

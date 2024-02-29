@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -37,12 +38,17 @@ class SecurityConfig {
                         .requestMatchers(ALLOWED_UI_VIEWS).permitAll()
                         .requestMatchers(ANGULAR_UI_RESOURCES).permitAll()
                         .anyRequest()
-                        .authenticated()
+                        .fullyAuthenticated()
                 )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .logout(logout -> logout
                         .permitAll()
                         .logoutSuccessUrl("/auth/login")
+                        .clearAuthentication(true)
+                        .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
+
                 )
                 .oauth2Login(auth -> auth
                         .defaultSuccessUrl("/github", true)

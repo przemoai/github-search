@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   login() {
-    window.location.href = `${environment.apiUrl}/login/oauth2/authorization`
+    window.location.href = `${environment.apiUrl}/login`
   }
 
   logout() {

@@ -1,7 +1,7 @@
-package com.talan.githubsearch.searchhistory.domain;
+package com.talan.githubsearch.history.domain;
 
 import com.talan.githubsearch.github.dto.GithubUserDetailsDto;
-import com.talan.githubsearch.searchhistory.dto.SearchHistoryDto;
+import com.talan.githubsearch.history.dto.SearchHistoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

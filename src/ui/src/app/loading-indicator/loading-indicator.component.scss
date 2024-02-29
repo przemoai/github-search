@@ -1,5 +1,3 @@
-// This is just to center the spinner
-
 html, body { height: 100%; }
 
 body {
@@ -7,8 +5,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-// Here is where the magic happens
 
 $offset: 187;
 $duration: 1.4s;
@@ -42,7 +38,7 @@ $duration: 1.4s;
 @keyframes dash {
   0% { stroke-dashoffset: $offset; }
   50% {
-    stroke-dashoffset: $offset/4;
+    stroke-dashoffset: calc($offset/4);
     transform:rotate(135deg);
   }
   100% {

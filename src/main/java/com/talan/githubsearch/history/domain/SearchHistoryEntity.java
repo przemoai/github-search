@@ -1,4 +1,4 @@
-package com.talan.githubsearch.searchhistory.domain;
+package com.talan.githubsearch.history.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
