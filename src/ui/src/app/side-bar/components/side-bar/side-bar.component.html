@@ -1,11 +1,10 @@
 <div class="content">
   <ng-container *ngIf="searchHistory.length>0">
-
     <table>
       <caption><h3>Recently searched</h3></caption>
       <th></th>
       <tr *ngFor="let result of searchHistory">
-      <app-history-row [history]="result"></app-history-row>
+        <app-history-row [history]="result" (deleteFromHistoryEvent)="removeFromHistory($event)"></app-history-row>
       </tr>
     </table>
     <div>

@@ -1,14 +1,18 @@
-<div [routerLink]="['user/',history.username]" class="content">
+<div class="content">
+  <div class="details" [routerLink]="['user/', history.username]">
+    <td class="details-content">
+      <img alt="{{ history.username }}" src="{{ history.avatar }}">
+      <div class="username">
+        <b>{{ history.username }}</b>
+      </div>
+      <div class="timestamp">
+        {{ history.visitedAt | date:'dd MMMM yy HH:mm' }}
+      </div>
+    </td>
+  </div>
   <td>
-  <img alt="{{history.username}}" src="{{history.avatar}}">
-
+    <button mat-button matSuffix (click)="deleteFromHistory(history.username)">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
   </td>
-  <td class="username">
-    <b>{{history.username}}</b>
-  </td>
-  <td>
-    {{history.visitedAt | date:'dd MMMM yy || HH:mm:ss '}}
-  </td>
-
-
 </div>

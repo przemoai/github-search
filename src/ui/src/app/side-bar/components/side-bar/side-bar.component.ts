@@ -3,7 +3,7 @@ import {SearchHistoryService} from "../../services/search-history.service";
 import {GithubUserSearchHistory} from "../../models/GithubUserSearchHistory";
 
 @Component({
-    selector: 'app-side-bar', templateUrl: './side-bar.component.html', styleUrls: ['./side-bar.component.scss']
+  selector: 'app-side-bar', templateUrl: './side-bar.component.html', styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
   searchHistory: GithubUserSearchHistory[] = [];
@@ -12,10 +12,14 @@ export class SideBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchHistoryService.updateSearchHistory()
     this.searchHistoryService.searchHistory$.subscribe((history: GithubUserSearchHistory[]) => {
       this.searchHistory = history;
     })
+    this.searchHistoryService.updateSearchHistory()
+  }
+
+  removeFromHistory(username: string) {
+    this.searchHistoryService.removeFromHistory(username);
   }
 
 }

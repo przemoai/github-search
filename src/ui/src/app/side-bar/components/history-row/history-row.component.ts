@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {GithubUserSearchHistory} from "../../models/GithubUserSearchHistory";
 
 @Component({
@@ -8,4 +8,8 @@ import {GithubUserSearchHistory} from "../../models/GithubUserSearchHistory";
 })
 export class HistoryRowComponent {
   @Input() history: GithubUserSearchHistory = <GithubUserSearchHistory>{};
+  @Output() deleteFromHistoryEvent:EventEmitter<string> = new EventEmitter<string>();
+  deleteFromHistory(username: string) {
+    this.deleteFromHistoryEvent.emit(username);
+  }
 }

@@ -3,6 +3,7 @@ package com.talan.githubsearch.history.domain;
 import com.talan.githubsearch.github.dto.GithubUserDetailsDto;
 import com.talan.githubsearch.history.dto.SearchHistoryDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -43,5 +44,13 @@ public class SearchHistoryFacade {
                     searchHistoryRepository.save(searchHistory);
                 }
         );
+    }
+
+    public Long deleteFromHistory(String username) {
+        SearchHistoryEntity user = searchHistoryRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
+
+        searchHistoryRepository.deleteById(user.getId());
+        return user.getId();
     }
 }
